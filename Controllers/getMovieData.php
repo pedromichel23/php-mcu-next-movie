@@ -16,14 +16,3 @@ function getMovieData(string $URL): array
     curl_close($ch);
     return $data;
 }
-
-function getMovieDaysUntil(int $days): string
-{
-    return  match (true) {
-        $days == 0  => "¡Hoy se estrena! 🥳",
-        $days == 1  => "Mañana se estrena 🚀",
-        $days < 7   => "Esta semana se estrena 🙀",
-        $days < 30  => "Este mes se estrena 📅",
-        default     => "{$days} dias hasta el estreno 📅",
-    };
-}
