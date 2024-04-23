@@ -1,8 +1,10 @@
 <?php
+//hace que el archivo php sea de tipado estricto
+declare(strict_types=1);
 
 //define('API_URL', 'https://www.whenisthenextmcufilm.com/api');
 
-function getMovieData($URL)
+function getMovieData(string $URL): array
 {
     $ch = curl_init($URL);
     //inidicar que queremos el resultado de la peticion pero que no lo muestre en pantalla.
@@ -13,4 +15,15 @@ function getMovieData($URL)
     $data = json_decode($result, true);
     curl_close($ch);
     return $data;
+}
+
+function getMovieDaysUntil(int $days): string
+{
+    return  match (true) {
+        $days == 0  => "¡Hoy se estrena! 🥳",
+        $days == 1  => "Mañana se estrena 🚀",
+        $days < 7   => "Esta semana se estrena 🙀",
+        $days < 30  => "Este mes se estrena 📅",
+        default     => "{$days} dias hasta el estreno 📅",
+    };
 }

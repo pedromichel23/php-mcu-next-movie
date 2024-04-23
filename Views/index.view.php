@@ -17,16 +17,16 @@
         <section class="section-movie">
             <hgroup>
                 <h1>
-                    <?= $result['title'] ?> releases in <?= $result['days_until'] ?>!
+                    <?= $result['title'] ?> - <?= $untilMessage ?>
                 </h1>
                 <h3>
-                    Release Date: <?= $result['release_date'] ?>
+                    Fecha de Estreno: <?= $result['release_date'] ?>
                 </h3>
                 <h3>
-                    Production Type: <?= $result['type'] ?>
+                    Produccion de Tipo:: <?= $result['type'] ?>
                 </h3>
                 <h3>
-                    What's afterwards? <?= $result['following_production']['title'] ?>
+                    ¿Que sigue despues? <?= $result['following_production']['title'] ?>
                 </h3>
             </hgroup>
             <img src="<?= $result['poster_url'] ?>" alt="proxima pelicula marvel">
